@@ -59,6 +59,9 @@ inputs:
       'Specific inputs for detekt (the --input argument for detekt-cli)'
       Example: 'path/to/dir1,path/to/dir2'
     required: false
+  image_registry:
+    description: 'Image Registry URL (optional; defaults to Docker Hub)'
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -76,6 +79,7 @@ runs:
     - ${{ inputs.detekt_build_upon_default_config }}
     - ${{ inputs.detekt_all_rules }}
     - ${{ inputs.detekt_input }}
+    - ${{ inputs.image_registry }}
 branding:
   icon: 'check-square'
   color: 'orange'
